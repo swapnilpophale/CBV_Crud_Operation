@@ -1,0 +1,26 @@
+{% extends 'firstapp/base.html' %}
+
+{% block title %}
+    <title>student data</title>
+{% endblock %}
+
+{% block first %}
+    <table>
+        <th>ID</th>
+        <th>Roll No</th>
+        <th>Name</th>
+        <th>Marks</th>
+        <th>Update</th>
+        <th>Delete</th>
+        {% for data in student_list %} #can use object_list
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.rn}}</td>
+                <td>{{data.name}}</td>
+                <td>{{data.marks}}</td>
+                <td><a href="{% url 'studentupdate' data.id %}"><button>Update</button></a></td>
+                <td><a href="{% url 'studentdelete' data.id %}"><button>Delete</button></a></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

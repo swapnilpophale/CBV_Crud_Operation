@@ -1,0 +1,16 @@
+{% extends 'firstapp/base.html' %}
+
+{% block title %}
+    <title>student delete</title>
+{% endblock %}
+
+{% block first %}
+    <h1>Are You Sure??</h1>
+    <hr/>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="delete">
+        <a href="{% url 'studentlist' %}">Cancel</a>
+    </form>
+
+{% endblock %}
